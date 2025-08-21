@@ -1,0 +1,51 @@
+# Design
+Will be splitting the services into three dockers
+Static content delivery, Session managing that handles websockets and servers, and database management and login
+
+> Docker: Sends static content when requested
+    > Connect to website via browser
+        > / : Home Page
+            > Login
+            > Singleplayer
+            > Multiplayer
+            > Leaderboard
+        > /login : Login page
+            > Username
+            > Password
+        > /minesweeper
+            > Dynamic page for singleplayer
+            > Customization
+                > Number of Mines
+                > Board size
+                > Lives
+            > Game will be created and computed on the user machine
+        > /royale
+            > / : Home page of royale
+                > Quick Play : Connects to a random server (due to limitations, cannot implement region checking and connect players to best server for ping) or create a public server if none
+                > List of public servers : A player can choose any public server to join or create one themselves (Private or Public)
+                > Servers will attempt to fill all the way before creating a new one, 50 players max
+        > /coop
+            > / : Home page of coop
+                > Create : Create a joinable singleplayer session where host can customize the game
+                > Join : Join by pasting session-code in a field or by pasting the url link in the browser
+> Docker: Handles the sessions
+    > Connect or create on session-urls
+        > /royale/session-id
+            > Real-time Chat
+            > Spectating
+                > Real-time cursors
+            > Board states and data
+            > Global timer
+            > Player states either Eliminated or Alive
+            > Current session rankings via time
+            > End-results : Winner, fastest time, fastest mine, etc
+        > /coop/session-id
+            > Real-time chat
+            > Real-time cursors
+            > Global board state
+            > Host
+                > Customization, Kick, Mute
+            > Player
+                > Cursor Color
+            > End-results : Time Taken, Lives used, 
+> Docker: Handles the database and login
