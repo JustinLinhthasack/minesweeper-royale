@@ -29,7 +29,7 @@ images of game placeholder
 Want to try out the game? Head to WEBSITE_PLACEHOLDER or host it yourself!
 
 # Prerequisites
-nodejs
+git, nodejs, npm
 
 # Installation and Setup
 
