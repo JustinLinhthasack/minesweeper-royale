@@ -3,7 +3,6 @@ const path = require('node:path');
 const app = express();
 const port = 8080;
 
-
 app.use('/images', express.static(path.join(__dirname, 'assets/images')));
 
 app.get('/', (req,res) => {

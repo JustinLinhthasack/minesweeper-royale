@@ -2,7 +2,7 @@
 Will be splitting the services into three dockers
 Static content delivery, Session managing that handles websockets and servers, and database management and login
 
-- Docker: Sends static content when requested
+- Website Docker: Sends static content when requested
     - Connect to website via browser
         - / : Home Page
             - Login
@@ -12,6 +12,12 @@ Static content delivery, Session managing that handles websockets and servers, a
         - /login : Login page
             - Username
             - Password
+            - Option to signup instead
+        - /signup : signup page
+            - Username
+            - Password
+            - Confirm Password
+            - Option to login instead
         - /minesweeper
             - Dynamic page for singleplayer
             - Customization
@@ -28,7 +34,7 @@ Static content delivery, Session managing that handles websockets and servers, a
             - / : Home page of coop
                 - Create : Create a joinable singleplayer session where host can customize the game
                 - Join : Join by pasting session-code in a field or by pasting the url link in the browser
-- Docker: Handles the sessions
+- Game Docker: Handles the sessions
     - Connect or create on session-urls
         - /royale/session-id
             - Real-time Chat
@@ -48,4 +54,4 @@ Static content delivery, Session managing that handles websockets and servers, a
             - Player
                 - Cursor Color
             - End-results : Time Taken, Lives used, 
-- Docker: Handles the database and login
+-Database Docker: Handles the database related side
